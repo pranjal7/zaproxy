@@ -66,13 +66,14 @@ ENV ZAP_PORT 8080
 ENV HOME /home/zap/
 
 COPY zap* /zap/
-COPY webswing.config /zap/webswing/
-COPY policies /home/zap/.ZAP_D/policies/
-COPY .xinitrc /home/zap/
+COPY docker/webswing.config /zap/webswing/
+COPY docker/policies /home/zap/.ZAP_D/policies/
+COPY docker/.xinitrc /home/zap/
 
 #Copy doesn't respect USER directives so we need to chown and to do that we need to be root
 USER root
 
+RUN chmod a+x /home/zap/.xinitrc
 #RUN chown zap:zap /zap/zap-x.sh && \
 #	chown zap:zap /zap/zap-baseline.py && \
 #	chown zap:zap /zap/zap-webswing.sh && \
