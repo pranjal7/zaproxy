@@ -65,7 +65,7 @@ ENV ZAP_PATH /zap/zap.sh
 ENV ZAP_PORT 8080
 ENV HOME /home/zap/
 
-COPY zap* /zap/
+COPY docker/zap* /zap/
 COPY docker/webswing.config /zap/webswing/
 COPY docker/policies /home/zap/.ZAP_D/policies/
 COPY docker/.xinitrc /home/zap/
